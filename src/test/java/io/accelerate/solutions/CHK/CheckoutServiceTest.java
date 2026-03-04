@@ -141,7 +141,7 @@ public class CheckoutServiceTest {
 
         totalPrice = checkoutService.calculateTotal("VVV");
         System.out.println("Total Price: " + totalPrice);
-        assertThat(totalPrice, equalTo(90)); // 3 V for 130
+        assertThat(totalPrice, equalTo(130)); // 3 V for 130
 
         totalPrice = checkoutService.calculateTotal("VVVV");
         System.out.println("Total Price: " + totalPrice);
@@ -153,5 +153,6 @@ public class CheckoutServiceTest {
 
 
 }
+
 
 
