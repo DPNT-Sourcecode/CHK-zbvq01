@@ -27,6 +27,8 @@ public class CheckoutController{
         catalog.put("C", new ProductImpl("C", 20));
         catalog.put("D", new ProductImpl("D", 15));
         catalog.put("E", new ProductImpl("E", 40));
+        catalog.put("F", new ProductImpl("F", 10));
+
         return catalog;
     }
 
@@ -66,3 +68,4 @@ public class CheckoutController{
         return rules;
     }
 }
+

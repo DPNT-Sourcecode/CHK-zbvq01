@@ -23,6 +23,7 @@ public class CheckoutServiceTest {
         catalog.put("C", new ProductImpl("C", 20));
         catalog.put("D", new ProductImpl("D", 15));
         catalog.put("E", new ProductImpl("E", 40));
+        catalog.put("F", new ProductImpl("F", 10));
 
         checkoutService = new CheckoutService(new SKUParser(), catalog, initializePricingRules(catalog));
     }
@@ -140,3 +141,4 @@ public class CheckoutServiceTest {
 
 
 }
+
