@@ -104,6 +104,10 @@ public class CheckoutServiceTest {
         Integer totalPrice = checkoutService.calculateTotal("STX");
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(45));
+
+        totalPrice = checkoutService.calculateTotal("STXYZ");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(82)); // should pick the most expensive 3 from the group, apply 45 and sum the rest
     }
 
     @Test
@@ -158,9 +162,8 @@ public class CheckoutServiceTest {
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(120)); // 3 N's for 120, M is free
 
-        totalPrice = checkoutService.calculateTotal("STXYZ");
-        System.out.println("Total Price: " + totalPrice);
-        assertThat(totalPrice, equalTo(82)); // should pick the most expensive 3 from the group, apply 45 and sum the rest
+
 
     }
 }
+
