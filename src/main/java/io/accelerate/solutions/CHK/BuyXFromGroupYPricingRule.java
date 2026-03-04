@@ -65,4 +65,3 @@ public class BuyXFromGroupYPricingRule implements  PricingRule {
                 .sum();
     }
 }
-

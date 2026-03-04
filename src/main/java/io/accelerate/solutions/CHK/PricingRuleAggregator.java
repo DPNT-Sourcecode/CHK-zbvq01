@@ -142,4 +142,3 @@ public class PricingRuleAggregator {
         return rules;
     }
 }
-

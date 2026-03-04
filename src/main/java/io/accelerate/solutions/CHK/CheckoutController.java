@@ -43,7 +43,7 @@ public class CheckoutController{
         catalog.put("P", new ProductImpl("P", 50));
         catalog.put("Q", new ProductImpl("Q", 30));
         catalog.put("R", new ProductImpl("R", 50));
-        catalog.put("S", new ProductImpl("S", 30));
+        catalog.put("S", new ProductImpl("S", 20));
         catalog.put("T", new ProductImpl("T", 20));
         catalog.put("U", new ProductImpl("U", 40));
         catalog.put("V", new ProductImpl("V", 50));
@@ -55,4 +55,3 @@ public class CheckoutController{
         return catalog;
     }
 }
-
