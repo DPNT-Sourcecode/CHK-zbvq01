@@ -21,11 +21,10 @@ public class MultiSkuBundlePricingRule implements PricingRule {
 
 
         while (canApply(context)) {
-            total += bundlePrice;
             for (Map.Entry<String, Integer> entry : requiredItems.entrySet()) {
                 context.consume(entry.getKey(), entry.getValue());
             }
-            total -= bundlePrice;
+            total += bundlePrice;
         }
 
         return total;
@@ -44,3 +43,4 @@ public class MultiSkuBundlePricingRule implements PricingRule {
 
 
 }
+
