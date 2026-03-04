@@ -85,7 +85,7 @@ public class CheckoutService {
     }
 
     //create a HashMap of products based on their SKU
-    //hashmap should contains the String sku and the list of products
+    //hashmap should contain the String sku and the list of products
     private Map<String, List> createProductMap(List<Product> products) {
         Map<String, List> productMap = new HashMap<>();
         for (Product product : products) {
@@ -99,3 +99,4 @@ public class CheckoutService {
 
 
 }
+

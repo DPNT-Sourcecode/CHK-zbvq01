@@ -12,7 +12,8 @@ public class CheckoutController{
     private final CheckoutService checkoutService;
 
     public CheckoutController() {
-        this.checkoutService = new CheckoutService(new SKUParser(), initializeCatalog(), initializePricingRules());
+        Map<String, Product> catalog = initializeCatalog();
+        this.checkoutService = new CheckoutService(new SKUParser(), catalog, initializePricingRules(catalog));
     }
 
     public Integer checkout(String skus) {
@@ -32,10 +33,11 @@ public class CheckoutController{
     private List<PricingRule> initializePricingRules(Map<String, Product> catalog) {
         List<PricingRule> rules = new ArrayList<>();
         //multi SKU RULE first
+        //E's multi-buy discount), price of 2E only
         rules.add(new MultiSkuBundlePricingRule(
                 Map.of("E", 2, "B", 1),
                 2 * 40,
-                400)); // E's multi-buy discount), price of 2E only
+                400));
 
         //single SKU bundle larger first
         // A's multi-buy discount with higher priority
@@ -64,6 +66,7 @@ public class CheckoutController{
         return rules;
     }
 }
+
 
 
 
