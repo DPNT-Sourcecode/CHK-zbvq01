@@ -19,8 +19,13 @@ public class BuyXGetYFreeSameSkuPricingRule implements PricingRule {
         int groupSize = buyQty + freeQty;
 
         while (context.getQuantity(sku)>= groupSize) {
-            context.consume();
+            context.consume(sku, groupSize);
+
+            //charge for buyQty only
+            total += buyQty * unitPrice;
         }
+
+        return total;
     }
 
     @Override
@@ -28,4 +33,5 @@ public class BuyXGetYFreeSameSkuPricingRule implements PricingRule {
         return priority;
     }
 }
+
 

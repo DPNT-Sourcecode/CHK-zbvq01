@@ -62,10 +62,19 @@ public class CheckoutController{
                 45, //price for 4 B's
                 200)); //priority
 
+        //F offer buy 2 get 1 free (need 3 F's to get the discount)
+        rules.add(new BuyXGetYFreeSameSkuPricingRule(
+                "F",
+                2,
+                1,
+                catalog.get("F").getUnitPrice(),
+                200));))
+
         //fallback to unit price for any remaining items
         rules.add(new UnitPricePricingRule(catalog));
 
         return rules;
     }
 }
+
 
