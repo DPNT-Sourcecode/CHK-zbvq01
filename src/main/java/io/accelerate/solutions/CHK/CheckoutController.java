@@ -25,13 +25,18 @@ public class CheckoutController{
         catalog.put("B", new ProductImpl("B", 30, 45, 2));
         catalog.put("C", new ProductImpl("C", 20, null, null));
         catalog.put("D", new ProductImpl("D", 15, null, null));
+        catalog.put("E", new ProductImpl("E", 40, null, null));
         return catalog;
     }
 
     private List<PricingRule> initializePricingRules() {
         List<PricingRule> rules = new ArrayList<>();
+        //multi SKU RULE first
+        rules.add(new Mu)
+
         rules.add(new MultiBuyDiscountRule(1)); // A's multi-buy discount
         rules.add(new MultiBuyDiscountRule(2)); // B's multi-buy discount
         return rules;
     }
 }
+
