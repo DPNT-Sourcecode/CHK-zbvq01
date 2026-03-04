@@ -32,4 +32,3 @@ public class UnitPricePricingRule implements PricingRule {
         return total;
     }
 }
-
