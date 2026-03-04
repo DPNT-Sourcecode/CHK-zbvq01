@@ -155,6 +155,14 @@ public class CheckoutController{
                 catalog.get("F").getUnitPrice(),
                 250));
 
+        //U offer buy 3 get 1 free (need 3 U's to get the discount)
+        rules.add(new BuyXGetYFreeSameSkuPricingRule(
+                "U",
+                3,
+                1,
+                catalog.get("U").getUnitPrice(),
+                250));
+
 
 
         //fallback to unit price for any remaining items
@@ -163,4 +171,5 @@ public class CheckoutController{
         return rules;
     }
 }
+
 
