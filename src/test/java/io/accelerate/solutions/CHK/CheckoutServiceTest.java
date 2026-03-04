@@ -136,7 +136,16 @@ public class CheckoutServiceTest {
 
         totalPrice = checkoutService.calculateTotal("VV");
         System.out.println("Total Price: " + totalPrice);
-        assertThat(totalPrice, equalTo(90)); //
+        assertThat(totalPrice, equalTo(90)); // 2 V for 90
+
+
+        totalPrice = checkoutService.calculateTotal("VVV");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(90)); // 3 V for 130
+
+        totalPrice = checkoutService.calculateTotal("VVVV");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(180)); // 4 V for 180
 
     }
 
@@ -144,4 +153,5 @@ public class CheckoutServiceTest {
 
 
 }
+
 
