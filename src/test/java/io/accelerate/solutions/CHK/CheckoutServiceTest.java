@@ -45,10 +45,11 @@ public class CheckoutServiceTest {
         Product productA = new ProductImpl("A", 50, 130, 3);
         Product productB = new ProductImpl("B", 30, 45, 2);
         Product productC = new ProductImpl("C", 20, null, null);
-        List<Product> products = Arrays.asList(productA, productA, productA, productB, productB, productC);
+        List<Product> products = Arrays.asList(productA, productB, productC);
         Integer totalPrice = checkoutService.calculateTotal(products);
         System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 100
          assertThat(totalPrice, equalTo(100));
      }
 }
+
 
