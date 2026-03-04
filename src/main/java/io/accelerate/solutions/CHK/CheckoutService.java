@@ -3,6 +3,7 @@ package io.accelerate.solutions.CHK;
 import lombok.Data;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,6 +30,23 @@ public class CheckoutService {
                 return -1;
             }
         }
+
+        //initialize context
+        PricingContext context = new PricingContext(parsed);
+
+        //apply pricing rules based on their priority
+        List<PricingRule> orderedRules = new ArrayList<>(pricingRules);
+
+        // sort the pricing rules based on their priority in descending order
+        orderedRules.sort(Comparator.comparing(PricingRule::getPriority).reversed());
+
+        //finally calculate the total
+        int total = 0;
+        for(PricingRule rule : orderedRules) {
+            total += rule.apply(context);
+        }
+
+        return total;
     }
 
 
@@ -81,4 +99,5 @@ public class CheckoutService {
 
 
 }
+
 
