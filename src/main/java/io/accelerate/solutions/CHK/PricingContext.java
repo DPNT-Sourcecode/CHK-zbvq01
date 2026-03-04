@@ -24,7 +24,8 @@ public class PricingContext {
         quantities.put(sku, current - amount);
     }
 
-    public Map<String, Integer> remainig() {
+    public Map<String, Integer> remaining() {
         return quantities;
     }
 }
+

@@ -2,13 +2,14 @@ package io.accelerate.solutions.CHK;
 
 import lombok.Data;
 
-@Data
-public class SimpleSKUBundlePricingRule  implements PricingRule {
+import java.util.Map;
 
-    private final String sku;
-    private final int requiredQuantity;
-    private final int bundlePrice;
-    private int priority;
+@Data
+// this is for the lowest priority rule, after all other are processed
+public class UnitPricePricingRule implements PricingRule {
+
+    private final Map<String, Product> catalog;
+    private final int priority = Integer.MIN_VALUE;
 
     @Override
     public int getPriority() {
@@ -18,11 +19,17 @@ public class SimpleSKUBundlePricingRule  implements PricingRule {
     @Override
     public int apply(PricingContext context) {
         int total = 0;
-        while (context.getQuantity(sku) >= requiredQuantity) {
-            context.consume(sku, requiredQuantity);
-            total += bundlePrice;
+
+        for (Map.Entry<String, Integer> entry : context.remaining().entrySet()) {
+            String sku = entry.getKey();
+            int quantity = entry.getValue();
+
+            if (quantity > 0) {
+                total += quantity * catalog.get(sku).getUnitPrice();
+                context.consume(sku, quantity);
+            }
         }
         return total;
     }
-
 }
+
