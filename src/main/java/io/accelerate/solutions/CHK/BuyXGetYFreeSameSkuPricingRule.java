@@ -2,16 +2,14 @@ package io.accelerate.solutions.CHK;
 
 import lombok.Data;
 
-import java.util.Map;
 
 @Data
 public class BuyXGetYFreeSameSkuPricingRule implements PricingRule {
     private final String sku;
     private final int buyQty;
     private final int freeQty;
-    private final int priority;
     private final int unitPrice;
-
+    private final int priority;
 
     @Override
     public int apply(PricingContext context) {
@@ -33,3 +31,4 @@ public class BuyXGetYFreeSameSkuPricingRule implements PricingRule {
         return priority;
     }
 }
+

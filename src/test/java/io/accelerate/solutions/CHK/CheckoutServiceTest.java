@@ -58,6 +58,14 @@ public class CheckoutServiceTest {
                 45, //price for 4 B's
                 200)); //priority
 
+        //F offer buy 2 get 1 free (need 3 F's to get the discount)
+        rules.add(new BuyXGetYFreeSameSkuPricingRule(
+                "F",
+                2,
+                1,
+                catalog.get("F").getUnitPrice(),
+                250));
+
         //fallback to unit price for any remaining items
         rules.add(new UnitPricePricingRule(catalog));
 
@@ -135,9 +143,28 @@ public class CheckoutServiceTest {
         totalPrice = checkoutService.calculateTotal("XYZ");
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(-1)); // Invalid SKUs, should return -1
+
+        totalPrice = checkoutService.calculateTotal("FFF");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(20)); // 3 F's, pay for 2 (10 each), get 1 free
+
+        totalPrice = checkoutService.calculateTotal("FFFFFF");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(40)); // 6 F's, pay for 4 (10 each), get 2 free
+
+        totalPrice = checkoutService.calculateTotal("FF");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(20)); // 2 F's, pay for 2 (10 each), no free item since we need 3 F's to get the discount
+
+        totalPrice = checkoutService.calculateTotal("FFFF");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(30)); // 4 F's, pay for 3 (10 each), get 1 free
+
+
     }
 
 
 
 
 }
+
