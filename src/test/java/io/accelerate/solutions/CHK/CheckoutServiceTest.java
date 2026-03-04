@@ -64,7 +64,47 @@ public class CheckoutServiceTest {
         assertThat(totalPrice, equalTo(130));
     }
 
+    @Test
+    public void testMultipleEqualsProductsPlus1() {
+        Product productA = new ProductImpl("A", 50, 130, 3);
+        Product productA2 = new ProductImpl("A", 50, 130, 3);
+        Product productA3 = new ProductImpl("A", 50, 130, 3);
+        Product productA4 = new ProductImpl("A", 50, 130, 3);
+
+        List<Product> products = Arrays.asList(productA, productA2, productA3, productA4);
+        Integer totalPrice = checkoutService.calculateTotal(products);
+        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 180
+        assertThat(totalPrice, equalTo(180));
+    }
+
+    @Test
+    public void testTwoDifferentProductsWithDiscount() {
+        Product productA = new ProductImpl("A", 50, 130, 3);
+        Product productA2 = new ProductImpl("A", 50, 130, 3);
+        Product productA3 = new ProductImpl("A", 50, 130, 3);
+        Product productB = new ProductImpl("B", 30, 45, 2);
+        Product productB2 = new ProductImpl("B", 30, 45, 2);
+
+        List<Product> products = Arrays.asList(productA, productA2, productA3, productB, productB2);
+        Integer totalPrice = checkoutService.calculateTotal(products);
+        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 175
+        assertThat(totalPrice, equalTo(175));
+    }
+
+
+    @Test
+    public void testProducsWithNoDiscount() {
+        Product productC = new ProductImpl("C", 20, null, null);
+        Product productD = new ProductImpl("D", 15, null, null);
+
+        List<Product> products = Arrays.asList(productC, productD);
+        Integer totalPrice = checkoutService.calculateTotal(products);
+        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 35
+        assertThat(totalPrice, equalTo(35));
+    }
+
 }
+
 
 
 

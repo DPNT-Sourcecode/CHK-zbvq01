@@ -16,6 +16,9 @@ public class CheckoutService {
             for (Object product : entry.getValue()) {
                 Product p = (Product) product;
                 if (p.getDiscountedPrice() != null && p.getDiscountedMultiplier() != null) {
+                    //if the product has a discount, calculate the total price for the discounted products of the same SKU and move to the next product SKU
+
+
                     Integer discountedPrice = p.getDiscountedPrice();
                     Integer discountedMultiplier = p.getDiscountedMultiplier();
                     Integer unitPrice = p.getUnitPrice();
@@ -25,6 +28,7 @@ public class CheckoutService {
                     Integer discountedTotal = (quantity / discountedMultiplier) * discountedPrice;
                     Integer remainingTotal = (quantity % discountedMultiplier) * unitPrice;
                     totalPrice += discountedTotal + remainingTotal;
+                    break;
                 } else {
                     totalPrice += p.getUnitPrice();
                 }
@@ -48,6 +52,7 @@ public class CheckoutService {
 
 
 }
+
 
 
 
