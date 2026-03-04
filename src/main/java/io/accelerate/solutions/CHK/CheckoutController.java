@@ -35,7 +35,7 @@ public class CheckoutController{
         catalog.put("H", new ProductImpl("H", 10));
         catalog.put("I", new ProductImpl("I", 35));
         catalog.put("J", new ProductImpl("J", 60));
-        catalog.put("K", new ProductImpl("K", 80));
+        catalog.put("K", new ProductImpl("K", 70));
         catalog.put("L", new ProductImpl("L", 90));
         catalog.put("M", new ProductImpl("M", 15));
         catalog.put("N", new ProductImpl("N", 40));
@@ -48,10 +48,11 @@ public class CheckoutController{
         catalog.put("U", new ProductImpl("U", 40));
         catalog.put("V", new ProductImpl("V", 50));
         catalog.put("W", new ProductImpl("W", 20));
-        catalog.put("X", new ProductImpl("X", 90));
-        catalog.put("Y", new ProductImpl("Y", 10));
-        catalog.put("Z", new ProductImpl("Z", 50));
+        catalog.put("X", new ProductImpl("X", 17));
+        catalog.put("Y", new ProductImpl("Y", 20));
+        catalog.put("Z", new ProductImpl("Z", 21));
 
         return catalog;
     }
 }
+
