@@ -14,7 +14,7 @@ public class CheckoutServiceTest {
 
     @BeforeEach
     public void setUp() {
-        checkoutService = new CheckoutService();
+        checkoutService = new CheckoutService(new SKUParser(),);
     }
 
 
@@ -108,3 +108,4 @@ public class CheckoutServiceTest {
 
 
 }
+
