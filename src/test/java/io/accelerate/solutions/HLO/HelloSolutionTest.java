@@ -24,4 +24,3 @@ public class HelloSolutionTest {
 //            assertThat(hello.hello(null), equalTo("Hello, World"));
 //        }
 }
-
