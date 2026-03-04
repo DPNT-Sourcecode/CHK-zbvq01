@@ -68,7 +68,7 @@ public class CheckoutController{
                 2,
                 1,
                 catalog.get("F").getUnitPrice(),
-                200));))
+                250));
 
         //fallback to unit price for any remaining items
         rules.add(new UnitPricePricingRule(catalog));
@@ -76,5 +76,3 @@ public class CheckoutController{
         return rules;
     }
 }
-
-
