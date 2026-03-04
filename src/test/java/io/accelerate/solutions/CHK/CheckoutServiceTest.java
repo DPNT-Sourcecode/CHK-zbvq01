@@ -25,9 +25,10 @@ public class CheckoutServiceTest {
         Product productC = new ProductImpl("C", 20, null, null);
         Product productD = new ProductImpl("D", 15, null, null);
 
-        List<Product> products = Arrays.asList(productA, productA, productA, productB, productB, productC, productD);
+        List<Product> products = Arrays.asList(productA, productB, productC, productD);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 195
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(115));
     }
 
     @Test
@@ -36,7 +37,7 @@ public class CheckoutServiceTest {
         Product productA2 = new ProductImpl("A", 50, 130, 3);
         List<Product> products = Arrays.asList(productA, productA2);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 100
+        System.out.println("Total Price: " + totalPrice); 
         assertThat(totalPrice, equalTo(100));
     }
 
@@ -103,8 +104,7 @@ public class CheckoutServiceTest {
         assertThat(totalPrice, equalTo(35));
     }
 
+
+
+
 }
-
-
-
-
