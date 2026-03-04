@@ -18,10 +18,13 @@ public class PricingContext {
     public boolean contains(String sku) {
         return quantities.containsKey(sku);
     }
-    
+
     public void consume(String sku, int amount) {
         int current = quantities.get(sku);
         quantities.put(sku, current - amount);
     }
-}
 
+    public Map<String, Integer> remainig() {
+        return quantities;
+    }
+}
