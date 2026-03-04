@@ -25,6 +25,6 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testSimpleProductA() {
-        assertThat(chk., equalTo(2));
+        assertThat(chk.checkout("A"), equalTo(50));
     }
 }

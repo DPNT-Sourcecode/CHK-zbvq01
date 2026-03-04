@@ -19,6 +19,9 @@ repositories {
 
 dependencies {
     implementation 'io.accelerate:tdl-client-java:0.33.1'
+    implementation 'org.apache.commons:commons-lang3:3.17.0'
+    implementation 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
     testImplementation('org.junit.jupiter:junit-jupiter:5.9.1')
     testImplementation('org.junit.platform:junit-platform-suite:1.8.1')

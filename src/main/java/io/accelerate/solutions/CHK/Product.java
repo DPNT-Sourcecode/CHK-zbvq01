@@ -6,4 +6,3 @@ public interface Product {
         Integer getDiscountedPrice();
         Integer getDiscountedMultiplier();
 }
-
