@@ -55,8 +55,8 @@ public class CheckoutServiceTest {
         //B offer
         rules.add(new SimpleSkuBundlePricingRule(
                 "B", //SKU
-                4, //required qty
-                60, //price for 4 B's
+                2, //required qty
+                45, //price for 4 B's
                 200)); //priority
 
         //fallback to unit price for any remaining items
@@ -122,4 +122,5 @@ public class CheckoutServiceTest {
 
 
 }
+
 
