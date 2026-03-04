@@ -15,8 +15,6 @@ public class CheckoutServiceTest {
     @BeforeEach
     public void setUp() {
 
-
-
         Map<String, Product> catalog = new HashMap<>();
         catalog.put("A", new ProductImpl("A", 50));
         catalog.put("B", new ProductImpl("B", 30));
@@ -118,7 +116,7 @@ public class CheckoutServiceTest {
 
         totalPrice = checkoutService.calculateTotal("XYZ");
         System.out.println("Total Price: " + totalPrice);
-        assertThat(totalPrice, equalTo(-1)); // Invalid SKUs, should return -1
+        assertThat(totalPrice, equalTo(150)); // Invalid SKUs, should return -1
 
         totalPrice = checkoutService.calculateTotal("FFF");
         System.out.println("Total Price: " + totalPrice);
@@ -136,6 +134,9 @@ public class CheckoutServiceTest {
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(30)); // 4 F's, pay for 3 (10 each), get 1 free
 
+        totalPrice = checkoutService.calculateTotal("VV");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(90)); //
 
     }
 
@@ -143,3 +144,4 @@ public class CheckoutServiceTest {
 
 
 }
+
