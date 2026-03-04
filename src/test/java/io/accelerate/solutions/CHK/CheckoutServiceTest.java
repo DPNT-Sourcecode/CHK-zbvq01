@@ -93,10 +93,17 @@ public class CheckoutServiceTest {
 
 
     @Test
-    public void testProducsWithNoDiscount() {
+    public void testProductsWithNoDiscount() {
         Integer totalPrice = checkoutService.calculateTotal("CD");
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(35));
+    }
+
+    @Test
+    public void testBundledInGroups() {
+        Integer totalPrice = checkoutService.calculateTotal("STX");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(45));
     }
 
     @Test
@@ -116,7 +123,7 @@ public class CheckoutServiceTest {
 
         totalPrice = checkoutService.calculateTotal("XYZ");
         System.out.println("Total Price: " + totalPrice);
-        assertThat(totalPrice, equalTo(150)); // Invalid SKUs, should return -1
+        assertThat(totalPrice, equalTo(45)); // now this should be 45 since we have a group offer for S, T, X, Y, Z (3 for 45)
 
         totalPrice = checkoutService.calculateTotal("FFF");
         System.out.println("Total Price: " + totalPrice);
@@ -153,3 +160,4 @@ public class CheckoutServiceTest {
 
     }
 }
+

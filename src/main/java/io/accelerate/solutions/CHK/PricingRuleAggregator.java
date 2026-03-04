@@ -3,6 +3,7 @@ package io.accelerate.solutions.CHK;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class PricingRuleAggregator {
 
@@ -30,6 +31,18 @@ public class PricingRuleAggregator {
                 Map.of("R", 3, "Q", 1),
                 3 * 50,
                 400));
+
+
+
+        //grouping bundle offer between multi sku and single sku
+        // should have priority 350
+        rules.add(new BuyXFromGroupYPricingRule(
+                Set.of("S", "T", "X", "Y", "Z"), //SKUs in the group
+                3, //buy 3
+                45, //for 3 items from the group
+                catalog,
+                350
+        ));
 
 
 
@@ -129,3 +142,4 @@ public class PricingRuleAggregator {
         return rules;
     }
 }
+
