@@ -8,25 +8,32 @@ import java.util.Map;
 public class CheckoutService {
     //given a list of products, calculate the total checkout price
     public Integer calculateTotal(List<Product> products) {
-        Integer total = 0;
-        for (Product product : products) {
-            if (product.getUnitPrice() == -1) {
-                return -1;
-            }
-            if (product.getDiscountedPrice() != null && product.getDiscountedMultiplier() != null) {
-                Integer discountedTotal = (products.size() / product.getDiscountedMultiplier()) * product.getDiscountedPrice();
-                Integer remainingTotal = (products.size() % product.getDiscountedMultiplier()) * product.getUnitPrice();
-                total += discountedTotal + remainingTotal;
+        Map<String, List> productMap = createProductMap(products);
+
+        //for each product in the map, calculate the total price based on the unit price and the discounted price
+        Integer totalPrice = 0;
+        for (Map.Entry<String, List> entry : productMap.entrySet()) {
+            String sku = entry.getKey();
+            List<Product> productList = entry.getValue();
+            Product product = productList.get(0);
+            Integer unitPrice = product.getUnitPrice();
+            Integer discountedPrice = product.getDiscountedPrice();
+            Integer discountedMultiplier = product.getDiscountedMultiplier();
+            Integer quantity = productList.size();
+            if (discountedPrice != null && discountedMultiplier != null) {
+                Integer discountedQuantity = quantity / discountedMultiplier;
+                Integer remainingQuantity = quantity % discountedMultiplier;
+                totalPrice += discountedQuantity * discountedPrice + remainingQuantity * unitPrice;
             } else {
-                total += product.getUnitPrice();
+                totalPrice += quantity * unitPrice;
             }
         }
-        return total;
+        return totalPrice;
     }
 
     //create a HashMap of products based on their SKU
     //hashmap should contains the String sku and the list of products
-    public Map<String, List> createProductMap(List<Product> products) {
+    private Map<String, List> createProductMap(List<Product> products) {
         Map<String, List> productMap = new HashMap<>();
         for (Product product : products) {
             if (!productMap.containsKey(product.getSku())) {
@@ -39,4 +46,5 @@ public class CheckoutService {
 
 
 }
+
 

@@ -37,9 +37,10 @@ public class CheckoutSolution {
             }
 
             //calculate the total price of the products in the list
-
+            return new CheckoutService().calculateTotal(products);
         }
 
     }
 }
+
 
