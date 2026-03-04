@@ -4,4 +4,3 @@ public interface Product {
         String getSku();
         Integer getUnitPrice();
 }
-

@@ -66,5 +66,3 @@ public class CheckoutController{
         return rules;
     }
 }
-
-
