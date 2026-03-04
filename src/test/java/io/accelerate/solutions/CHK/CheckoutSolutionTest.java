@@ -1,6 +1,5 @@
 package io.accelerate.solutions.CHK;
 
-import io.accelerate.solutions.SUM.SumSolution;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -41,3 +40,4 @@ public class CheckoutSolutionTest {
         assertThat(chk.checkout("AAAAAAA"), equalTo(310));
     }
 }
+
