@@ -32,7 +32,7 @@ public class CheckoutSolution {
                         break;
                     default:
                         //for products that are not in the list, return value -1
-                       products.add(new ProductImpl("Z", -1, null, null));
+                       return -1;
                 }
             }
 
@@ -42,3 +42,4 @@ public class CheckoutSolution {
 
     }
 }
+
