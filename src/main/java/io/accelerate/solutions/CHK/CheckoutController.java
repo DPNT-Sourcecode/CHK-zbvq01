@@ -102,20 +102,18 @@ public class CheckoutController{
                 45, //price for 5 H's
                 200));
 
-        //H Offer
+        //V Offer
         rules.add(new SimpleSkuBundlePricingRule(
                 "V", //SKU
                 3, //required qty
                 130, //price for 3 v's
                 300)); //priority
-
+        //V Offer
         rules.add(new SimpleSkuBundlePricingRule(
                 "V", //SKU
                 2, //required qty
                 90, //price for 2 V's
                 200));
-
-
 
         //B offer
         rules.add(new SimpleSkuBundlePricingRule(
@@ -171,5 +169,6 @@ public class CheckoutController{
         return rules;
     }
 }
+
 
 
