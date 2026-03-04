@@ -4,6 +4,11 @@ import io.accelerate.runner.SolutionNotImplementedException;
 
 public class HelloSolution {
     public String hello(String friendName) {
-        return "Hello, World!";
+        if (friendName == null) {
+            return "Hello, World!";
+        } else {
+            return "Hello, " + friendName + "!";
+        }
     }
 }
+
