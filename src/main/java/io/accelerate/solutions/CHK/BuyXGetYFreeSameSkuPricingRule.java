@@ -31,4 +31,3 @@ public class BuyXGetYFreeSameSkuPricingRule implements PricingRule {
         return priority;
     }
 }
-
