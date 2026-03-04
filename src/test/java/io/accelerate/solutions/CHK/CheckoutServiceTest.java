@@ -147,12 +147,13 @@ public class CheckoutServiceTest {
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(180)); // 4 V for 180
 
+        totalPrice = checkoutService.calculateTotal("NNNM");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(120)); // 3 N's for 120, M is free
+
     }
-
-
-
-
 }
+
 
 
 
