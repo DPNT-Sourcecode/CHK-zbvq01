@@ -37,7 +37,7 @@ public class CheckoutServiceTest {
         Product productA2 = new ProductImpl("A", 50, 130, 3);
         List<Product> products = Arrays.asList(productA, productA2);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); 
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(100));
     }
 
@@ -48,7 +48,7 @@ public class CheckoutServiceTest {
         Product productC = new ProductImpl("C", 20, null, null);
         List<Product> products = Arrays.asList(productA, productB, productC);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 100
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(100));
     }
 
@@ -61,7 +61,7 @@ public class CheckoutServiceTest {
 
         List<Product> products = Arrays.asList(productA, productA2, productA3);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 130
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(130));
     }
 
@@ -74,7 +74,7 @@ public class CheckoutServiceTest {
 
         List<Product> products = Arrays.asList(productA, productA2, productA3, productA4);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 180
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(180));
     }
 
@@ -88,7 +88,7 @@ public class CheckoutServiceTest {
 
         List<Product> products = Arrays.asList(productA, productA2, productA3, productB, productB2);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 175
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(175));
     }
 
@@ -100,7 +100,7 @@ public class CheckoutServiceTest {
 
         List<Product> products = Arrays.asList(productC, productD);
         Integer totalPrice = checkoutService.calculateTotal(products);
-        System.out.println("Total Price: " + totalPrice); // Expected output: Total Price: 35
+        System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(35));
     }
 
@@ -108,3 +108,4 @@ public class CheckoutServiceTest {
 
 
 }
+

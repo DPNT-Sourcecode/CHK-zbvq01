@@ -27,4 +27,17 @@ public class CheckoutSolutionTest {
     public void testSimpleProductA() {
         assertThat(chk.checkout("A"), equalTo(50));
     }
+
+    @Test
+    public void testAllProducts() {
+        assertThat(chk.checkout(""), equalTo(0));
+        assertThat(chk.checkout("Z"), equalTo(-1));
+        assertThat(chk.checkout("ZA"), equalTo(49));
+        assertThat(chk.checkout("A"), equalTo(50));
+        assertThat(chk.checkout("AB"), equalTo(80));
+        assertThat(chk.checkout("ABC"), equalTo(100));
+        assertThat(chk.checkout("CDBA"), equalTo(115));
+        assertThat(chk.checkout("AAABBBCCC"), equalTo(205));
+    }
 }
+
