@@ -29,7 +29,7 @@ public class CheckoutController{
         return catalog;
     }
 
-    private List<PricingRule> initializePricingRules() {
+    private List<PricingRule> initializePricingRules(Map<String, Product> catalog) {
         List<PricingRule> rules = new ArrayList<>();
         //multi SKU RULE first
         rules.add(new MultiSkuBundlePricingRule(
@@ -57,13 +57,13 @@ public class CheckoutController{
                 4, //required qty
                 60, //price for 4 B's
                 200)); //priority
-        ))
 
+        //fallback to unit price for any remaining items
+        rules.add(new UnitPricePricingRule(catalog));
 
-        rules.add(new MultiBuyDiscountRule(1)); // A's multi-buy discount
-        rules.add(new MultiBuyDiscountRule(2)); // B's multi-buy discount
         return rules;
     }
 }
+
 
 

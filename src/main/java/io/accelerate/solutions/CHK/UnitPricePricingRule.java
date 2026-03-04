@@ -9,11 +9,10 @@ import java.util.Map;
 public class UnitPricePricingRule implements PricingRule {
 
     private final Map<String, Product> catalog;
-    private final int priority = Integer.MIN_VALUE;
 
     @Override
     public int getPriority() {
-        return priority;
+        return Integer.MIN_VALUE;
     }
 
     @Override
@@ -32,3 +31,4 @@ public class UnitPricePricingRule implements PricingRule {
         return total;
     }
 }
+
