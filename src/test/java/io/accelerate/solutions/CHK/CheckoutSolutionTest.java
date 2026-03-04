@@ -40,4 +40,3 @@ public class CheckoutSolutionTest {
         assertThat(chk.checkout("AAAAAAA"), equalTo(310));
     }
 }
-
