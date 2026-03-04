@@ -1,16 +1,15 @@
 package io.accelerate.solutions.CHK;
 
+import lombok.Data;
+
+@Data
 public class ProductImpl implements Product {
     private String sku;
     private Integer unitPrice;
-    private Integer discountedPrice;
-    private Integer discountedMultiplier;
 
-    public ProductImpl(String sku, Integer unitPrice, Integer discountedPrice, Integer discountedMultiplier) {
+    public ProductImpl(String sku, Integer unitPrice) {
         this.sku = sku;
         this.unitPrice = unitPrice;
-        this.discountedPrice = discountedPrice;
-        this.discountedMultiplier = discountedMultiplier;
     }
 
     @Override
@@ -23,13 +22,5 @@ public class ProductImpl implements Product {
         return unitPrice;
     }
 
-    @Override
-    public Integer getDiscountedPrice() {
-        return discountedPrice;
-    }
-
-    @Override
-    public Integer getDiscountedMultiplier() {
-        return discountedMultiplier;
-    }
 }
+

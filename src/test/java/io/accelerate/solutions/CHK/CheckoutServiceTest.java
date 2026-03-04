@@ -18,11 +18,11 @@ public class CheckoutServiceTest {
     public void setUp() {
 
         Map<String, Product> catalog = new HashMap<>();
-        catalog.put("A", new ProductImpl("A", 50, 130, 3));
-        catalog.put("B", new ProductImpl("B", 30, 45, 2));
-        catalog.put("C", new ProductImpl("C", 20, null, null));
-        catalog.put("D", new ProductImpl("D", 15, null, null));
-        catalog.put("E", new ProductImpl("E", 40, null, null));
+        catalog.put("A", new ProductImpl("A", 50));
+        catalog.put("B", new ProductImpl("B", 30));
+        catalog.put("C", new ProductImpl("C", 20));
+        catalog.put("D", new ProductImpl("D", 15));
+        catalog.put("E", new ProductImpl("E", 40));
 
 
 
@@ -122,5 +122,6 @@ public class CheckoutServiceTest {
 
 
 }
+
 
 
