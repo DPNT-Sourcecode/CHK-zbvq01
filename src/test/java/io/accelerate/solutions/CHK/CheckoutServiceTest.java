@@ -130,12 +130,17 @@ public class CheckoutServiceTest {
         totalPrice = checkoutService.calculateTotal("EEB");
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(80)); // 2 E's for 80, B is free
+
+        totalPrice = checkoutService.calculateTotal("XYZ");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(-1)); // Invalid SKUs, should return -1
     }
 
 
 
 
 }
+
 
 
 
