@@ -10,7 +10,7 @@ public class CheckoutSolution {
     public Integer checkout(String skus) {
         //checks if have any input
         if (StringUtils.isEmpty(skus)) {
-            return 0;
+            return -1;
         } else {
             //create a new instance for each product depending on the input
             //create a list of products based on the list of chars in the input string
@@ -42,4 +42,5 @@ public class CheckoutSolution {
 
     }
 }
+
 
