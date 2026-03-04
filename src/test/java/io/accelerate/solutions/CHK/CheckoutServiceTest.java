@@ -24,8 +24,6 @@ public class CheckoutServiceTest {
         catalog.put("D", new ProductImpl("D", 15));
         catalog.put("E", new ProductImpl("E", 40));
 
-
-
         checkoutService = new CheckoutService(new SKUParser(), catalog, initializePricingRules(catalog));
     }
 
@@ -118,10 +116,27 @@ public class CheckoutServiceTest {
         assertThat(totalPrice, equalTo(35));
     }
 
+    @Test
+    public void testMultiCombination() {
+        Integer totalPrice = checkoutService.calculateTotal("AAAAA");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(200)); // 5 A's for 200
+
+        totalPrice = checkoutService.calculateTotal("BB");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(45)); // 2 B's for 45
+
+
+        totalPrice = checkoutService.calculateTotal("EEB");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(80)); // 2 E's for 80, B is free
+    }
+
 
 
 
 }
+
 
 
 
