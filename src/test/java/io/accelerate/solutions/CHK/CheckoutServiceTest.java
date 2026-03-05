@@ -162,9 +162,16 @@ public class CheckoutServiceTest {
         System.out.println("Total Price: " + totalPrice);
         assertThat(totalPrice, equalTo(120)); // 3 N's for 120, M is free
 
+        totalPrice = checkoutService.calculateTotal("KK");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(120)); //2 K's for 120
 
+        totalPrice = checkoutService.calculateTotal("KKKK");
+        System.out.println("Total Price: " + totalPrice);
+        assertThat(totalPrice, equalTo(240)); // 4 K's for 240 (2 bundles of 2 K's for 120 each)
 
     }
 }
+
 
 

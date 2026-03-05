@@ -98,7 +98,7 @@ public class PricingRuleAggregator {
         rules.add(new SimpleSkuBundlePricingRule(
                 "K", //SKU
                 2, //required qty
-                150, //price for 2 K's
+                120, //price for 2 K's
                 200)); //priority
         //P offer
         rules.add(new SimpleSkuBundlePricingRule(
@@ -142,3 +142,4 @@ public class PricingRuleAggregator {
         return rules;
     }
 }
+
